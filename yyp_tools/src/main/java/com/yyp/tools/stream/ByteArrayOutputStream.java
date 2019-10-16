@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package com.yan.func.func.stream;
+package com.yyp.tools.stream;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

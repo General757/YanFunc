@@ -1,0 +1,89 @@
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+//gradle bintrayUpload
+//./gradlew bintrayUpload
+
+def siteUrl = 'https://github.com/General757/YanFunc'
+def gitUrl = 'https://github.com/General757/YanFunc.git'
+
+group = 'com.yan.tools'
+version = '1.0.1'
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                name 'YanFunc'// 可选，项目名称
+                description 'custom YanFunc for android'// 可选，项目描述
+                url siteUrl     //项目地址
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'YanYan'
+                        name 'YanYan'
+                        email '1183561804@qq.com'
+                    }
+                }
+
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+
+        }
+    }
+}
+
+task androidJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+    classifier = 'javadoc'
+    from androidJavadocs.destinationDir
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives androidSourcesJar
+    archives androidJavadocsJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")//bintray的用户名
+    key = properties.getProperty("bintray.apikey")//修改成你自己的apikey，可以在bintray官网上查到
+    configurations = ['archives']
+    pkg {
+        version {
+            name = '1.0.1'
+            desc = 'custom progress bar 1.0.1'
+        }
+
+        repo = 'maven'
+        name = 'YanFunc'   //发布到JCenter上项目名
+        userOrg = 'generalyan'
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ['Apache-2.0']
+        publish = true
+    }
+}

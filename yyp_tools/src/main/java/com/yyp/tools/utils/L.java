@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package com.yan.func.func.utils;
+package com.yyp.tools.utils;
 
 import android.util.Log;
 

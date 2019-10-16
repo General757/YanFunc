@@ -1,0 +1,105 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'maven'
+//apply from: "build_files/static-code-analysis.gradle"
+//ext {
+//    PUBLISH_GROUP_ID = 'com.yan.tools'
+//    PUBLISH_ARTIFACT_ID = 'yantools'
+//    PUBLISH_VERSION = '1.1.0'
+//}
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 18
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:28.+'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+//gradlew clean build bintrayUpload -PbintrayUser=BINTRAY_USERNAME -PbintrayKey=BINTRAY_KEY -PdryRun=false
+
+//./gradlew uploadArchives
+//uploadArchives {
+//    repositories.mavenDeployer {
+//        // 配置本地仓库路径，项目根目录下的repository目录中
+////        repository(url: 'file://Users/bubing/AndroidPrivateProjects/YanFunc')
+//        repository(url: uri('file://Users/bubing/AndroidPrivateProjects/YanFunc/repository'))
+//        pom.groupId = "com.yan.tools"// 唯一标识（通常为模块包名，也可以任意）
+//        pom.artifactId = "tools" // 项目名称（通常为类库模块名称，也可以任意）
+//        pom.version = "1.0.1" // 版本号
+//    }
+//}
+//apply from: './nexus-push.gradle'
+//apply from: "build_files/nexus-android-release.gradle"
+
+// must be applied after your artifact generating plugin (eg. java / com.android.library)
+//apply plugin: 'com.novoda.bintray-release'
+//
+//publish {
+//    userOrg = 'yanyan'   //bintray.com 账户下某个组织id
+//    groupId = 'com.yan.tools'  //jcenter上的路径，一般为包名
+//    artifactId = 'tools'  //项目名称
+//    publishVersion = '1.0.0'  //版本号
+//    desc = 'custom chart for android'   //项目介绍，可以不写
+//    website = ''  //项目主页，可以不写
+//}
+//apply from: './jcenter-push.gradle'
+//apply from: './mavenJcenter.gradle'
+
+//ext {
+//    libraryPackaging = 'aar'                                            //上传aar形式的打包文件
+//
+//    // jcenter
+//    bintrayRepo = "maven"// 你上传的位于bintray中的Repository名称，如果没有创建会有一个叫maven的
+//    name = 'module_tools'                                                // 必须和library module的名字相同
+//    libraryDesc = 'A Tools Library'
+//    publishedGroupId = 'com.yan.tools'// 填写groupId， 一般是包名，比如：com.android.support
+//    versionName = '1.0.1'                                               // 版本号，比如：22.2.1
+//    websiteUrl = 'https://github.com/General757/YanFunc'              // 可以填写github上的库地址.
+//    issueTrackerUrl = 'https://github.com/General757/YanFunc/issues'  // 可以填写github库的issue地址.
+//    vcsUrl = 'https://github.com/General757/YanFunc.git'              // 可以填写github上库的地址.
+//    licenseName = "Apache-2.0"
+//    libraryVersionDesc = 'version descriotion'
+//
+//    // maven
+//    artifact = 'module_tools'                                            // 必须和library module的名字相同
+//    libraryName = 'module_tools'
+//    developerId = 'General757'
+//    developerName = 'General757'
+//    developerEmail = '1183561804@qq.com'
+//    licenseName = 'The Apache Software License, Version 2.0'
+//    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//
+//}
+////apply from: 'android-maven-install.gradle'
+////apply from: 'android-tasks.gradle'
+////apply from: 'bintray.gradle'
+//
+//// 为了引用方便，可以把上面三个gradle内容放到一个文件中，这样引用一行，效果和上面引用3个文件是一样的
+//apply from: 'jcenter.gradle'
+//
+//// 另外，为了不需要每次都创建这个文件，还可以把这个配置文件放到网络上：
+////https://github.com/andforce/release-android-lib-to-jcenter
+////https://raw.githubusercontent.com/andforce/release-android-lib-to-jcenter/master/jcenter.gradle
+////所以最终，我们的引用方式变成了这样
+////apply from: 'https://raw.githubusercontent.com/andforce/release-android-lib-to-jcenter/master/jcenter.gradle'
+
+apply from: './bintray.gradle'

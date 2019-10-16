@@ -3,13 +3,13 @@
 // (powered by Fernflower decompiler)
 //
 
-package com.yan.func.func.utils;
+package com.yyp.tools.utils;
 
 import android.os.Build.VERSION;
 
-import com.yan.func.Charsets;
-import com.yan.func.stream.ByteArrayOutputStream;
-import com.yan.func.stream.StringBuilderWriter;
+import com.yyp.tools.Charsets;
+import com.yyp.tools.stream.ByteArrayOutputStream;
+import com.yyp.tools.stream.StringBuilderWriter;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;

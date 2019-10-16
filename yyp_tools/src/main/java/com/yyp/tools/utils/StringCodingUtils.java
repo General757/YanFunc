@@ -1,4 +1,4 @@
-package com.yan.func.func.utils;
+package com.yyp.tools.utils;
 
 import android.os.Build.VERSION;
 

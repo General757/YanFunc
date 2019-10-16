@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package com.yan.func.func.utils;
+package com.yyp.tools.utils;
 
 import android.content.Context;
 import android.os.Environment;

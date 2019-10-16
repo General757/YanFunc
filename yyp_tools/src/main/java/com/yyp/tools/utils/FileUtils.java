@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package com.yan.func.func.utils;
+package com.yyp.tools.utils;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;
@@ -14,7 +14,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 
-import com.yan.func.Charsets;
+import com.yyp.tools.Charsets;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

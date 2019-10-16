@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package com.yan.func.func;
+package com.yyp.tools;
 
 import java.nio.charset.Charset;
 
